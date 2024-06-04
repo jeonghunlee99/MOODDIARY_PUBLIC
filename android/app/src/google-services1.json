@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "243981618862",
+    "project_id": "mooddiary-1807a",
+    "storage_bucket": "mooddiary-1807a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243981618862:android:31082f1b9f48b2f890673f",
+        "android_client_info": {
+          "package_name": "com.junhajeonghoon.mooddiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243981618862-e5fq9m6a29duh0atddntde1h7judjntk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.junhajeonghoon.mooddiary",
+            "certificate_hash": "9bdcd66b318d8d0ebe1afae10bd7c447082d1e6e"
+          }
+        },
+        {
+          "client_id": "243981618862-54h5hhj3j7ai9pin5h2jiart6d7q0j50.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI9a2xdRwJbStt8d86RJRAi9bBupocCDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243981618862-54h5hhj3j7ai9pin5h2jiart6d7q0j50.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
