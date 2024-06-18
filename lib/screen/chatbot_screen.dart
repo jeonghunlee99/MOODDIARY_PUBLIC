@@ -10,9 +10,9 @@ import '../models/conversation.dart';
 import '../models/sentence_model.dart';
 import 'package:mooddiary/widgets/chatbubble.dart';
 import '../utils/ad_mob_helper.dart';
-
 import '../utils/constant.dart';
-import '../viewmodels/backgroud_image.dart';
+import '../viewmodels/chat_bot_background_image.dart';
+import '../viewmodels/option_button_viewmodel.dart';
 import '../widgets/option_button.dart';
 
 class ChatBotApp extends StatefulWidget {
@@ -33,7 +33,7 @@ class ChatBotAppState extends State<ChatBotApp> {
   List<String> selectedOptions = []; // 선택한 옵션을 기록하는 리스트
   final ScrollController _scrollController = ScrollController();
   late Future<NativeAd> _adFuture;
-  BackgroundImageViewModel viewModel = BackgroundImageViewModel();
+  chatbotBackgroundImageViewModel viewModel = chatbotBackgroundImageViewModel();
 
   @override
   void initState() {

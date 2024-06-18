@@ -1,20 +1,20 @@
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:mooddiary/screen/mood_chart.dart';
 import 'package:mooddiary/screen/setting_page.dart';
 import 'package:mooddiary/utils/constant.dart';
 import 'package:mooddiary/utils/ad_mob_helper.dart';
-
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import '../api/weather_api.dart';
 import '../screen/diary_list_screen.dart';
 import '../login/kakao_login.dart';
-import 'bnb_custom_painter.dart';
+import '../viewmodels/diary_list_viewmodel.dart';
+
+
 import 'package:mooddiary/screen/chatbot_screen.dart';
 import 'dart:io';
 import 'login_dialog.dart';
@@ -66,6 +66,8 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar> {
     // adManager.dispose();
     super.dispose();
   }
+
+  DiaryListViewModel viewModel = DiaryListViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -203,7 +205,7 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DiaryListScreen()),
+                          builder: (context) =>  DiaryListScreen(viewModel: viewModel)),
                     );
                   },
                   icon: Icon(Icons.list,
@@ -281,5 +283,33 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar> {
     setState(() {
       currentIndex = index;
     });
+  }
+}
+
+class BNBCustomPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()
+      ..color = Colors.brown
+      ..style = PaintingStyle.fill;
+    Path path = Path()..moveTo(0, 20);
+    path.quadraticBezierTo(size.width * 0.20, 0, size.width * 0.35, 0);
+    path.quadraticBezierTo(size.width * 0.40, 0, size.width * 0.40, 20);
+    path.arcToPoint(Offset(size.width * 0.60, 20),
+        radius: const Radius.circular(10.0), clockwise: false);
+
+    path.quadraticBezierTo(size.width * 0.60, 0, size.width * 0.65, 0);
+    path.quadraticBezierTo(size.width * 0.80, 0, size.width, 20);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+    path.close();
+
+    canvas.drawShadow(path, Colors.black, 5, true);
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }
