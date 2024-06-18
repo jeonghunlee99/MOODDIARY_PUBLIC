@@ -1,4 +1,4 @@
-class BackgroundImageViewModel {
+class chatbotBackgroundImageViewModel {
   String getBackgroundImage(String weatherCondition) {
 
     switch (weatherCondition) {

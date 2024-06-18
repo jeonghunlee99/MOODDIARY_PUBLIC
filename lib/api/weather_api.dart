@@ -37,6 +37,8 @@ class WeatherService with ChangeNotifier {
         _weatherCondition = weatherData['weather'][0]['main'];
 
         notifyListeners();
+        debugPrint("$_weatherCondition");
+        print("안녕하세요 여기에요");
         return weatherCondition;
 
       } else {
