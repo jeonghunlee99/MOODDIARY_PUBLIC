@@ -50,7 +50,7 @@ class _SettingPageState extends State<SettingPage> {
       create: (_) => NotificationViewModel(),
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Settings'),
+          title: const Text('Alarm'),
           backgroundColor: Colors.brown[400],
         ),
         body: Padding(

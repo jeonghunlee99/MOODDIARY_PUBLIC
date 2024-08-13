@@ -12,6 +12,7 @@ import 'package:provider/provider.dart';
 import '../api/weather_api.dart';
 import '../screen/diary_list_screen.dart';
 import '../login/kakao_login.dart';
+import '../screen/my_info_scren.dart';
 import '../viewmodels/diary_list_viewmodel.dart';
 
 
@@ -221,54 +222,20 @@ class CustomBottomNavBarState extends State<CustomBottomNavBar> {
                     );
                     _onIconPressed(2);
                   },
-                  icon: Icon(Icons.settings,
+                  icon: Icon(Icons.alarm,
                       color: currentIndex == 2 ? Colors.black54 : Colors.white),
                 ),
                 IconButton(
-                  onPressed: () async {
-                    _onIconPressed(3);
-
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text("로그아웃"),
-                          content: Text("정말 로그아웃 하시겠습니까?"),
-                          actions: [
-                            TextButton(
-                              onPressed: () async {
-                                // 로그아웃 코드 실행
-                                _onIconPressed(0);
-                                try {
-                                  var code = await KakaoLogin().logout();
-                                  await FirebaseAuth.instance.signOut();
-
-                                  debugPrint('카카오 로그아웃 성공: $code');
-                                } catch (e) {
-                                  // print('카카오 로그아웃 실패: $e');
-                                }
-                                try {
-                                  await GoogleSignIn().signOut();
-                                  debugPrint('구글 로그아웃 성공');
-                                } catch (e) {
-                                  debugPrint('구글 로그아웃 실패: $e');
-                                }
-                                Navigator.pop(context); // 다이얼로그 닫기
-                              },
-                              child: Text("예"),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context); // 다이얼로그 닫기
-                              },
-                              child: Text("아니오"),
-                            ),
-                          ],
-                        );
-                      },
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyInfoScreen()),
                     );
+                    _onIconPressed(3);
                   },
-                  icon: Icon(Icons.logout_outlined,
+
+                  icon: Icon(Icons.account_circle,
                       color: currentIndex == 3 ? Colors.black54 : Colors.white),
                 ),
               ],

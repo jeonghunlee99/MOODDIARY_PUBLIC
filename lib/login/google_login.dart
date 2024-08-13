@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleLogin {
-  static Future<bool> handleGoogleSignIn(Function onSuccess) async {
+  static Future<bool> handleGoogleSignIn(BuildContext context) async {
     final GoogleSignInAccount? googleSignInAccount = await GoogleSignIn().signIn();
     if (googleSignInAccount != null) {
       final GoogleSignInAuthentication googleSignInAuthentication =
@@ -45,7 +45,7 @@ class GoogleLogin {
           if (oldUser != null && !isLinked) {
             await _updateUserDataAfterGoogleSignIn(oldUser.uid, newUser.uid);
           }
-          onSuccess();
+
           return true;
           // 로그인 성공
         }
