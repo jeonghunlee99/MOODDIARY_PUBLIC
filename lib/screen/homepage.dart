@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:mooddiary/api/login_manager.dart';
+
 import 'package:mooddiary/screen/diary_detail_screen.dart';
 import 'package:mooddiary/utils/ad_mob_helper.dart';
 import 'package:mooddiary/viewmodels/diary_view_model.dart';
@@ -28,7 +28,7 @@ class HomePageState extends State<HomePage> {
   DateTime? prevSelectedDate;
   late WeatherService weatherService;
   late Future<NativeAd> _adFuture;
-  late UserAuthManager _authManager;
+
   final DiaryViewModel _viewModel = DiaryViewModel();
 
   @override
@@ -39,8 +39,8 @@ class HomePageState extends State<HomePage> {
       adUnitId: adUnitId,
       factoryId: 'adFactoryExample',
     ).createNativeAd();
-    _authManager = UserAuthManager();
-    _authManager.init();
+
+
   }
 
   @override

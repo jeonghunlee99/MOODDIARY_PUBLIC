@@ -1,15 +1,14 @@
 import 'dart:async';
-import 'package:android_id/android_id.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:gsform/gs_form/widget/field.dart';
 import 'package:gsform/gs_form/widget/form.dart';
 import 'package:gsform/gs_form/widget/section.dart';
 import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart' as kakao;
+import 'package:mooddiary/screen/homepage.dart';
 import '../widgets/gs_button.dart';
 import '../widgets/gs_date_picker.dart';
 
@@ -27,28 +26,11 @@ class MultiSectionFormState extends State<MultiSectionForm> {
   late User? user;
   late StreamSubscription<User?> _authSubscription;
   bool canPop = false;
-  static const _androidIdPlugin = AndroidId();
-  var _androidId = 'Unknown';
 
   @override
   void initState() {
     super.initState();
     initializeFirebase();
-    _initAndroidId();
-  }
-
-  Future<void> _initAndroidId() async {
-    String androidId;
-
-    try {
-      androidId = await _androidIdPlugin.getId() ?? 'Unknown ID';
-    } on PlatformException {
-      androidId = 'Failed to get Android ID.';
-    }
-
-    if (!mounted) return;
-
-    setState(() => _androidId = androidId);
   }
 
   Future<void> initializeFirebase() async {
@@ -56,10 +38,10 @@ class MultiSectionFormState extends State<MultiSectionForm> {
     user = FirebaseAuth.instance.currentUser;
     _authSubscription =
         FirebaseAuth.instance.authStateChanges().listen((User? currentUser) {
-      setState(() {
-        user = currentUser;
-      });
-    });
+          setState(() {
+            user = currentUser;
+          });
+        });
   }
 
   @override
@@ -148,38 +130,37 @@ class MultiSectionFormState extends State<MultiSectionForm> {
                                 String uid = user!.uid;
 
                                 Map<String, dynamic>? oldData =
-                                    await _loadUserDataFromFirestore(
-                                        _androidId);
+                                await _loadUserDataFromFirestore(uid);
                                 bool isGoogleSignedIn =
-                                    await _checkGoogleLoginStatus();
+                                await _checkGoogleLoginStatus();
                                 bool isKakaoSignedIn =
-                                    await _checkKakaoLoginStatus();
+                                await _checkKakaoLoginStatus();
 
                                 Map<String, dynamic> selectedData = {
                                   'name': formData['이름'],
                                   'sex': selectedGender,
                                   'birth':
-                                      Timestamp.fromDate(selectedBirthdate!),
-                                  'e-mail': formData['이메일'],
+                                  Timestamp.fromDate(selectedBirthdate!),
+                                  'email': formData['이메일'],
                                   'uid': uid,
                                   'platform': isGoogleSignedIn
                                       ? 'google'
                                       : isKakaoSignedIn
-                                          ? 'kakao'
-                                          : 'none',
+                                      ? 'kakao'
+                                      : 'none',
                                   ...?oldData,
                                 };
 
                                 await FirebaseFirestore.instance
                                     .collection('realusers')
-                                    .doc(_androidId)
-                                    .set(selectedData);
+                                    .doc(uid)
+                                    .set(selectedData, SetOptions(merge: true));
                                 debugPrint(
                                     'Data saved to Firestore successfully');
 
                                 await FirebaseFirestore.instance
                                     .collection('users')
-                                    .doc(_androidId)
+                                    .doc(uid)
                                     .delete();
                                 debugPrint(
                                     'Data deleted from Firestore successfully');
@@ -199,8 +180,14 @@ class MultiSectionFormState extends State<MultiSectionForm> {
                             debugPrint(
                                 'Form is not valid. Not saving data to Firestore.');
                           }
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(builder: (context) => HomePage()),
+                                  (route) => false
+                          );
                         },
                         child: const Text('저장'),
+
                       ),
                     ),
                   ],
@@ -214,16 +201,15 @@ class MultiSectionFormState extends State<MultiSectionForm> {
   }
 }
 
-Future<Map<String, dynamic>?> _loadUserDataFromFirestore(
-    String? androidId) async {
-  if (androidId != null) {
+Future<Map<String, dynamic>?> _loadUserDataFromFirestore(String? uid) async {
+  if (uid != null) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
 
     String collectionPath = 'users';
-    String documentPath = androidId;
+    String documentPath = uid;
 
     DocumentSnapshot snapshot =
-        await firestore.collection(collectionPath).doc(documentPath).get();
+    await firestore.collection(collectionPath).doc(documentPath).get();
 
     if (snapshot.exists) {
       return snapshot.data() as Map<String, dynamic>;
