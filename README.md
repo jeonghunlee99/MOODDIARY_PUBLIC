@@ -1,16 +1,11 @@
 # mooddiary
 
-A new Flutter project.
+Flutter를 통해 만든 일기 작성 앱
 
-## Getting Started
+## 프로젝트 소개
 
-This project is a starting point for a Flutter application.
+간단한 버튼으로 일기를 작성 하는 앱 입니다.
 
-A few resources to get you started if this is your first Flutter project:
+### 주요 기능 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
