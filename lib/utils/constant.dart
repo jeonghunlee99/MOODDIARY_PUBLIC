@@ -1,4 +1,6 @@
-const String nativeAppKey = 'fcc19b74c02b401d0ecc42b0ef53e5fa';
-const String apiKey =  '3ee1faf75b9cab24ae5e398d0577790c';
-const String adUnitId = 'ca-app-pub-9648913799110207/1037977787';
-const String rewardAdId = 'ca-app-pub-9648913799110207/4356132031';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+final String nativeAppKey = dotenv.env['NATIVE_APP_KEY'] ?? '';
+final String apiKey = dotenv.env['API_KEY'] ?? '';
+final String adUnitId = dotenv.env['AD_UNIT_ID'] ?? '';
+final String rewardAdId = dotenv.env['REWARD_AD_ID'] ?? '';

@@ -13,12 +13,15 @@ import 'package:provider/provider.dart';
 import 'package:mooddiary/screen/homepage.dart';
 import 'api/weather_api.dart';
 import 'models/checkbox_model.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
-  KakaoSdk.init(nativeAppKey: nativeAppKey);
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  MobileAds.instance.initialize();
+  void main() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await dotenv.load(fileName: 'assets/config/.env');
+    KakaoSdk.init(nativeAppKey: nativeAppKey);
+    await Firebase.initializeApp();
+    MobileAds.instance.initialize();
 
   runApp(
     MultiProvider(
