@@ -87,7 +87,7 @@ class _MyAppState extends State<MyApp> {
                   CircularProgressIndicator(), // 로딩 인디케이터를 표시합니다.
                   SizedBox(height: 20), // 간격을 조절합니다.
                   Text(
-                    '날씨 정보를 얻는 중입니다sasasdfasffddsasas! 😄',
+                    '날씨 정보를 얻는 중입니다! 😄',
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
