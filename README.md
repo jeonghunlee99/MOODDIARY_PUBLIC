@@ -170,7 +170,7 @@ class ImagePathProvider with ChangeNotifier {
   }
 }
 2. 이미지 선택 및 저장 과정
-ImageHandler 클래스에서 pickImage 메소드를 통해 사용자가 선택한 이미지를 ImagePathProvider에 저장합니다.
+ImageHandler 클래스에서 pickImage 메소드를 통해 사용자가 선택한 이미지를 ImagePathProvider에 저장.
 dart
 
 
@@ -268,12 +268,12 @@ class PermissionRequestDialogState extends State<PermissionRequestDialog> {
 </div> </details>
 결과
 
-이 다이얼로그를 통해 사용자는 알림 권한을 쉽게 요청할 수 있으며, 권한이 거부된 경우 설정 화면으로 직접 이동하여 권한을 변경할 수 있음. 이를 통해 앱이 꺼졌을 때도 알림을 받을 수 있도록 개선되었습니다. 또한, Play Store의 경고도 해결 하였음.
+이 다이얼로그를 통해 사용자는 알림 권한을 쉽게 요청할 수 있으며, 권한이 거부된 경우 설정 화면으로 직접 이동하여 권한을 변경할 수 있음. 이를 통해 앱이 꺼졌을 때도 알림을 받을 수 있도록 개선. 또한, Play Store의 경고도 해결 하였음.
 
 ## 🔧 **그 외 트러블 슈팅**
 
 ### 1. **자동 스크롤 기능 구현**
-- 대화 중 버튼을 선택할 때마다 새로운 선택지가 리스트에 추가되어 사용자가 수동으로 스크롤을 내려야 하는 문제를 해결하기 위해 자동 스크롤 기능을 구현했습니다.
+- 대화 중 버튼을 선택할 때마다 새로운 선택지가 리스트에 추가되어 사용자가 수동으로 스크롤을 내려야 하는 문제를 해결하기 위해 자동 스크롤 기능을 구현.
 
 <details>
 <summary>💻 코드</summary>
@@ -294,6 +294,27 @@ void scrollToBottom() {
 ```
 </div> </details>
 
+### 2. 이메일 전송 기능 오류
+
+- 앱에서 이메일을 보내기 위한 기능을 구현했으나, 버튼 클릭 시 오류가 발생하여 이메일 전송창으로 들어가지지 않음.
+- AndroidManifest.xml 파일에 다음과 같은 `<queries>` 태그를 추가하여 이메일 전송 인텐트를 설정했습니다.
+
+
+<details>
+<summary>💻 코드</summary>
+<div markdown="1">
+
+```xml
+<queries>
+    <intent>
+        <action android:name="android.intent.action.SENDTO" />
+        <data android:scheme="mailto" />
+    </intent>
+</queries>
+```
+</div> </details>
+
+
 ## **앱 실행 화면**
 <img src="https://github.com/user-attachments/assets/7fd7fcd9-3dfa-4eea-ab70-e15d34329f61"  width="200">
 <img src="https://github.com/user-attachments/assets/32bd4a44-ec8f-49f9-8edc-9d0889cbb04d"  width="200">
@@ -306,5 +327,5 @@ void scrollToBottom() {
 ## 📥 **다운로드 링크**
 
 
-- [Google Play Store에서 다운로드](https://play.google.com/store/apps/details?id=com.junhajeonghoon.foodrecipe)
+- [Google Play Store에서 다운로드](https://play.google.com/store/apps/details?id=com.junhajeonghoon.smooddiary)
 
