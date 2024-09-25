@@ -23,6 +23,7 @@
 ## 🎯 **프로젝트 목표**
 
 
+
 1. **JSON 파일로 버튼 생성**: 사용자가 버튼을 클릭함으로써 동적으로 데이터를 표시할 수 있도록 JSON 파일을 활용.
 
 2. **Provider를 통한 데이터 관리**: 상태 관리를 위해 Provider 패턴을 사용하여 앱 내 데이터 정보를 지속적으로 유지.
@@ -294,11 +295,16 @@ void scrollToBottom() {
 </div> </details>
 
 ## **앱 실행 화면**
-<img src="https://github.com/user-attachments/assets/19d44a85-363f-46fe-a205-f01562994ed44"  width="200">
-
+<img src="https://github.com/user-attachments/assets/7fd7fcd9-3dfa-4eea-ab70-e15d34329f61"  width="200">
+<img src="https://github.com/user-attachments/assets/32bd4a44-ec8f-49f9-8edc-9d0889cbb04d"  width="200">
+<img src="https://github.com/user-attachments/assets/9164422c-57ae-4ac5-859d-96d0ce9644d3"  width="200">
+<img src="https://github.com/user-attachments/assets/4ddd5efd-825f-405b-8ec2-bcf13e6bedbb"  width="200">
+<img src="https://github.com/user-attachments/assets/e32008d3-4fd8-4a78-ae40-a27d5beb960d"  width="200">
+<img src="https://github.com/user-attachments/assets/8280391a-9d5a-40f9-8b03-30a15af7cec2"  width="200">
 
 
 ## 📥 **다운로드 링크**
+
 
 - [Google Play Store에서 다운로드](https://play.google.com/store/apps/details?id=com.junhajeonghoon.foodrecipe)
 
