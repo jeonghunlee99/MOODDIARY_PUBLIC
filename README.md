@@ -316,7 +316,7 @@ void scrollToBottom() {
 
 
 ## **앱 실행 화면**
-<img src="https://github.com/user-attachments/assets/7fd7fcd9-3dfa-4eea-ab70-e15d34329f61"  width="200">
+<img src="https://github.com/user-attachments/assets/80e41dd7-ae65-4fc9-825e-2cc07a739bd9"  width="200">
 <img src="https://github.com/user-attachments/assets/32bd4a44-ec8f-49f9-8edc-9d0889cbb04d"  width="200">
 <img src="https://github.com/user-attachments/assets/9164422c-57ae-4ac5-859d-96d0ce9644d3"  width="200">
 <img src="https://github.com/user-attachments/assets/4ddd5efd-825f-405b-8ec2-bcf13e6bedbb"  width="200">
