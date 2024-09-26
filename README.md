@@ -317,18 +317,12 @@ void scrollToBottom() {
 
 ## **앱 실행 화면**
 <img src="https://github.com/user-attachments/assets/80e41dd7-ae65-4fc9-825e-2cc07a739bd9"  width="200">
-<img src="https://github.com/user-attachments/assets/32bd4a44-ec8f-49f9-8edc-9d0889cbb04d"  width="200">
-<img src="https://github.com/user-attachments/assets/9164422c-57ae-4ac5-859d-96d0ce9644d3"  width="200">
-<img src="https://github.com/user-attachments/assets/4ddd5efd-825f-405b-8ec2-bcf13e6bedbb"  width="200">
-<img src="https://github.com/user-attachments/assets/e32008d3-4fd8-4a78-ae40-a27d5beb960d"  width="200">
-<img src="https://github.com/user-attachments/assets/8280391a-9d5a-40f9-8b03-30a15af7cec2"  width="200">
-
 <img src="https://github.com/user-attachments/assets/550bd424-04f2-48c5-8024-708ddfe4eef8"  width="200">
 <img src="https://github.com/user-attachments/assets/d05dc23c-d8a6-47fc-a759-04b726d2f9fe"  width="200">
 <img src="https://github.com/user-attachments/assets/8cbbec03-d640-462d-9774-0345e8a6dadd"  width="200">
 <img src="https://github.com/user-attachments/assets/e6294ae2-e5ed-4d92-981c-4276e7c53c33"  width="200">
 <img src="https://github.com/user-attachments/assets/3307ee5a-dc4c-418f-9c31-69c5e2a4fa2a"  width="200">
-<img src="https://github.com/user-attachments/assets/8e202701-2435-42cd-8e87-1407498da705"  width="200">
+
 
 
 
