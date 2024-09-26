@@ -322,8 +322,6 @@ void scrollToBottom() {
 <img src="https://github.com/user-attachments/assets/4ddd5efd-825f-405b-8ec2-bcf13e6bedbb"  width="200">
 <img src="https://github.com/user-attachments/assets/e32008d3-4fd8-4a78-ae40-a27d5beb960d"  width="200">
 <img src="https://github.com/user-attachments/assets/8280391a-9d5a-40f9-8b03-30a15af7cec2"  width="200">
-
-<img src="https://github.com/user-attachments/assets/80e41dd7-ae65-4fc9-825e-2cc07a739bd9"  width="200">
 ## 📥 **다운로드 링크**
 
 
